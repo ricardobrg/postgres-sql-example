@@ -8,7 +8,7 @@ import java.sql.Statement;
 
 public class PostgresConnector {
 	
-	static String url = "jdbc:postgresql://localhost:5432/test";
+	static String url = "jdbc:postgresql://localhost:5432/postgres";
 	static String user = "postgres";
 	static String password = "admin";
 	static Connection con;
@@ -38,5 +38,8 @@ public class PostgresConnector {
 		return null;
 	}
 	
-	
+	public static void executeUpdate(String query) throws SQLException {
+		Statement st = con.createStatement();
+		st.executeUpdate(query);
+	}
 }
